@@ -14,7 +14,7 @@ CREATE TABLE usuario (
 	id_plano INT,
 	FOREIGN KEY (id_plano) REFERENCES plano(id_plano),
 	telefone VARCHAR(100) NOT NULL,
-	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO plano (nome_plano, valor_plano, duracao_dias, descricao_plano)
@@ -51,7 +51,7 @@ VALUES
 
 INSERT INTO usuario (cpf_usuario, nome_usuario, senha, id_plano, telefone)
 VALUES 
-    ('067.566.234-56','Thalysson','12345678@lindo',1, '(86)9586-2470');
+    ('067.566.234-56','Thalysson','12345678@lindo',1, '(86) 9586-2470');
 
 CREATE TABLE exercicio (
 	id_exercicio SERIAL PRIMARY KEY,
@@ -60,3 +60,14 @@ CREATE TABLE exercicio (
 	FOREIGN KEY (id_grupo) REFERENCES grupo_muscular(id_grupo)
 );
 
+CREATE TABLE ficha (
+	id_usuario INT,
+	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+	ordem_exercicio SERIAL UNIQUE,
+	id_exercicio INT,
+	FOREIGN KEY (id_exercicio) REFERENCES exercicio(id_exercicio),
+	id_grupo INT,
+	FOREIGN KEY (id_grupo) REFERENCES grupo_muscular(id_grupo),
+	series INT NOT NULL,
+	repeticoes INT NOT NULL
+);
