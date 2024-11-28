@@ -1,7 +1,7 @@
 CREATE TABLE plano (
 	id_plano SERIAL PRIMARY KEY,
-	nome_plano VARCHAR(50) UNIQUE NOT NULL,
-	valor_plano FLOAT NOT NULL,
+	nome_plano VARCHAR(50) NOT NULL,
+	valor_plano NUMERIC NOT NULL,
 	duracao_dias INT NOT NULL,
 	descricao_plano VARCHAR(100) NOT NULL
 );
@@ -34,7 +34,7 @@ VALUES ('anual',540,360,'1 ano, 50% OFF');
 
 CREATE TABLE grupo_muscular (
 	id_grupo SERIAL PRIMARY KEY,
-	nome_grupo VARCHAR(100) UNIQUE NOT NULL
+	nome_grupo VARCHAR(100) NOT NULL
 );
 
 INSERT INTO grupo_muscular (nome_grupo)
@@ -55,19 +55,18 @@ VALUES
 
 CREATE TABLE exercicio (
 	id_exercicio SERIAL PRIMARY KEY,
-	nome_exercicio VARCHAR(100) UNIQUE NOT NULL,
+	nome_exercicio VARCHAR(100) NOT NULL,
 	id_grupo INT,
 	FOREIGN KEY (id_grupo) REFERENCES grupo_muscular(id_grupo)
 );
 
 CREATE TABLE ficha (
-	id_usuario INT,
+	id_ficha SERIAL PRIMARY KEY,
+	id_usuario INT NOT NULL,
 	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-	ordem_exercicio SERIAL UNIQUE,
-	id_exercicio INT,
+	ordem_exercicio INT NOT NULL,
+	id_exercicio INT NOT NULL,
 	FOREIGN KEY (id_exercicio) REFERENCES exercicio(id_exercicio),
-	id_grupo INT,
-	FOREIGN KEY (id_grupo) REFERENCES grupo_muscular(id_grupo),
 	series INT NOT NULL,
 	repeticoes INT NOT NULL
 );
