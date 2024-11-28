@@ -22,22 +22,6 @@ CREATE TABLE grupo_muscular (
 	nome_grupo VARCHAR(100) NOT NULL
 );
 
-INSERT INTO grupo_muscular (nome_grupo)
-VALUES 
-    ('Bíceps'),
-    ('Ombro'),
-    ('Peitoral'),
-    ('Costas'),
-    ('Tríceps'),
-    ('Panturrilha'),
-	('Quadríceps'),
-	('Posterior de Coxa'),
-	('Antebraço');
-
-INSERT INTO usuario (cpf_usuario, nome_usuario, senha, id_plano, telefone)
-VALUES 
-    ('067.566.234-56','Thalysson','12345678@lindo',1, '(86) 9586-2470');
-
 CREATE TABLE exercicio (
 	id_exercicio SERIAL PRIMARY KEY,
 	nome_exercicio VARCHAR(100) NOT NULL,
