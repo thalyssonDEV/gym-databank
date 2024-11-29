@@ -33,7 +33,6 @@ CREATE TABLE ficha (
 	id_ficha SERIAL PRIMARY KEY,
 	id_usuario INT NOT NULL,
 	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-	ordem_exercicio INT NOT NULL,
 	id_exercicio INT NOT NULL,
 	FOREIGN KEY (id_exercicio) REFERENCES exercicio(id_exercicio),
 	series INT NOT NULL,
