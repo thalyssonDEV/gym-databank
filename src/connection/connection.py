@@ -3,10 +3,11 @@ import bcrypt
 
 def insert_user_into_db(cpf_usuario, nome_usuario, senha, telefone, id_plano):
     # Definir os parâmetros de conexão
-    host = "localhost"  # ou o endereço do seu servidor PostgreSQL
-    database = "gym_databank"  # o nome do seu banco de dados
+    host = "autorack.proxy.rlwy.net"  # ou o endereço do seu servidor PostgreSQL
+    database = "railway"  # o nome do seu banco de dados
     user = "postgres"  # o nome de usuário do PostgreSQL
-    password = "95629740"  # a senha do usuário
+    password = "sDeuWzYNXrtTRIPcZcRyrRajPmUXobbQ"  # a senha do usuário
+    port = 14815
 
     # Criptografando a senha
     hashed_password = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
@@ -17,7 +18,8 @@ def insert_user_into_db(cpf_usuario, nome_usuario, senha, telefone, id_plano):
             host=host,
             database=database,
             user=user,
-            password=password
+            password=password,
+            port=port
         )
         print("Conexão Bem-Sucedida ao Banco de Dados!")
 
