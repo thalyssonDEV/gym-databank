@@ -1,0 +1,164 @@
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background:url("acada.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-color: whitesmoke
+}
+
+h1 {
+    color: cyan; /* Azul Elétrico */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Sombra mais forte para destacar */
+    border-radius: 5px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3); /* Sutil fundo branco sem cobrir a cor do título */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Josefin Sans", sans-serif;
+    margin-left: 2px;
+    cursor: default;
+    font-weight: bold;
+    -webkit-text-stroke: 1px white;
+}
+
+.main_container {
+    width: 270px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-right: 35px;
+    padding-left: 16px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    background-color: white;
+}
+
+input {
+    background-color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid white; /* Cor e espessura da borda */
+    border-radius: 10px; /* Arredonda os cantos dos inputs */
+    outline: none; /* Remove a linha de foco padrão */
+    width: 100%; /* Faz com que o input ocupe toda a largura do container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+  
+input::placeholder {
+    font-family: "Josefin Sans", sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.send_button {
+    margin-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 94px;
+    padding-right: 100px;
+    font-size: 16px;
+    font-family: "Josefin Sans", sans-serif;
+    border: none; /* Remove a borda padrão */
+    border-radius: 10px; /* Arredonda os cantos do botão */
+    background-color: black; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.send_button:hover {
+    background-color: rgb(7, 161, 250); /* Cor de fundo ao passar o mouse */
+}
+
+select {
+    width: 100%;
+    padding: 20px;
+    margin: 5px 0;
+    margin-left: 10px; 
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: border-color 0.3s ease-in-out;
+    appearance: none;
+    background-image: url('seta.png'); /* Insira o código SVG da seta para criar uma seta customizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Ajusta a seta para ficar mais para a esquerda */
+    background-size: 15px, 15px;
+    padding-right: 10px;
+}
+
+select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+select {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+select option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+option {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+}
+
+option:hover {
+    background-color: #f0f0f0;
+}
+
+select option[title] {
+    font-style: italic;
+    color: #777;
+}
+
+.plan-description {
+    position: absolute;
+    top: 69%;
+    left: 63%;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none; /* Inicialmente oculto */
+    margin-top: 15px; /* Distância entre select e a descrição */
+    display: none; /* Inicialmente oculto */
+    z-index: 10; 
+}
+
+#planSelect {
+    width: 100%;
+    padding: 20px;
+    margin: 5px 0;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
