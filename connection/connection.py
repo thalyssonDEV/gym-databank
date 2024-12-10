@@ -1,14 +1,15 @@
 import psycopg2
 import bcrypt
+from dotenv import load_dotenv
 
 def insert_user_into_db(cpf_usuario, nome_usuario, senha, telefone, id_plano):
     # Definir os parâmetros de conexão
-    host = "autorack.proxy.rlwy.net"  # ou o endereço do seu servidor PostgreSQL
-    database = "railway"  # o nome do seu banco de dados
-    user = "postgres"  # o nome de usuário do PostgreSQL
-    password = "sDeuWzYNXrtTRIPcZcRyrRajPmUXobbQ"  # a senha do usuário
-    port = 14815
-
+    host = os.getenv("host")
+    database = os.getenv("database")
+    user = os.getenv("user")
+    password = os.geteven("password")
+    port = os.getenv("port")
+    
     # Criptografando a senha
     hashed_password = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
 
