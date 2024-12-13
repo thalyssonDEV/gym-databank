@@ -1,17 +1,18 @@
 import psycopg2
 import bcrypt
-from dotenv import load_dotenv
 
 def insert_user_into_db(cpf_usuario, nome_usuario, senha, telefone, id_plano):
     # Definir os parâmetros de conexão
-    host = os.getenv("host")
-    database = os.getenv("database")
-    user = os.getenv("user")
-    password = os.geteven("password")
-    port = os.getenv("port")
+    host = "autorack.proxy.rlwy.net"
+    database = "railway"
+    user = "postgres"
+    password = "sDeuWzYNXrtTRIPcZcRyrRajPmUXobbQ"
+    port = 14815
     
     # Criptografando a senha
     hashed_password = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
+
+    conn = None;
 
     # Conectando ao banco de dados PostgreSQL
     try:
@@ -31,7 +32,7 @@ def insert_user_into_db(cpf_usuario, nome_usuario, senha, telefone, id_plano):
         INSERT INTO usuario (cpf_usuario, nome_usuario, senha, telefone, id_plano)
         VALUES (%s, %s, %s, %s, %s);
         """
-        cursor.execute(query, (cpf_usuario, nome_usuario, senha, telefone, id_plano))
+        cursor.execute(query, (cpf_usuario, nome_usuario, hashed_password, telefone, id_plano))
         conn.commit()
         print('Usuário Registrado')
 
